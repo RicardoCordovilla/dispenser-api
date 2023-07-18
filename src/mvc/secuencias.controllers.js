@@ -24,15 +24,15 @@ const getAllSecuences = async () => {
 
 const getCurrentSecuence = async () => {
     const currentDay = new Date()
-    const currentTime = currentDay.getHours() + ':' + currentDay.getMinutes()
+    const currentTime = currentDay.getHours() - 5 + ':' + currentDay.getMinutes()
     const data = await Secuencias.findOne({
         where: {
             timestr: { [Op.eq]: currentTime }
         }
     })
 
-    // return data ? data.steps : 0
-    return currentTime
+    return data ? data.steps : 0
+    // return currentTime
 }
 
 const getSecuence1 = async () => {
