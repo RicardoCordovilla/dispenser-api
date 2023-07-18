@@ -9,6 +9,13 @@ const createSecuence = async (data) => {
     return newSecuence
 }
 
+const updateSecuence1 = async (steps) => {
+    const result = await Secuencias.update({ steps: steps }, {
+        where: { id: 1 }
+    })
+    return result
+}
+
 const getAllSecuences = async () => {
     const data = await Secuencias.findAll({
     })
@@ -24,7 +31,8 @@ const getCurrentSecuence = async () => {
         }
     })
 
-    return data ? data.steps : 0
+    // return data ? data.steps : 0
+    return currentTime
 }
 
 const getSecuence1 = async () => {
@@ -37,6 +45,7 @@ const getSecuence1 = async () => {
 
 module.exports = {
     createSecuence,
+    updateSecuence1,
     getAllSecuences,
     getCurrentSecuence,
     getSecuence1

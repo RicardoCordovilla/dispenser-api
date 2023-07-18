@@ -9,6 +9,8 @@ router.post('/',
 
 router.get('/', secuenciasServices.getAllSecuences)
 
+router.patch('/u/:step', secuenciasServices.updateSecuence1)
+
 router.get('/a', secuenciasServices.getCurrentSecuence)
 router.get('/m', secuenciasServices.getSecuence1)
 
