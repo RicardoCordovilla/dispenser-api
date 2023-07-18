@@ -37,8 +37,8 @@ const getCurrentSecuence = async () => {
         }
     })
 
-    // return data ? data.steps : 0
-    return { currentTime: currentTime }
+    return data ? data.steps : 0
+    // return { currentTime: currentTime }
 }
 
 const getSecuence1 = async () => {
