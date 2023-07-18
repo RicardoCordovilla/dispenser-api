@@ -28,17 +28,18 @@ const getAllSecuences = async () => {
 }
 
 const getCurrentSecuence = async () => {
-    const currentDay = new Date()
-    const currentTime = currentDay.getHours() + ':' + currentDay.getMinutes()
-    const currentTime2 = digits(currentDay.getHours() - 5) + ':' + digits(currentDay.getMinutes())
+    const currentDay = new Date().toLocaleTimeString('en-GB', { timeZone: 'US/Arizona' })
+    // const currentTime = currentDay.getHours() + ':' + currentDay.getMinutes()
+    // const currentTime2 = digits(currentDay.getHours()) + ':' + digits(currentDay.getMinutes())
     const data = await Secuencias.findOne({
-        where: {
-            timestr: { [Op.eq]: currentTime }
-        }
+        // where: {
+        //     timestr: { [Op.eq]: currentTime }
+        // }
     })
 
     // return data ? data.steps : 0
-    return { currentTime: currentTime, currentTime2: currentTime2 }
+    // return { currentTime: currentTime, currentTime2: currentTime2 }
+    return { currentDay }
 }
 
 const getSecuence1 = async () => {
