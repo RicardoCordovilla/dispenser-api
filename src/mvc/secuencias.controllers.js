@@ -1,6 +1,11 @@
 const { Op } = require("sequelize")
 const Secuencias = require("./secuencias.model")
 
+const digits = (num) => {
+    let digit = num < 10 ? '0' + num : num + ''
+    return digit
+}
+
 const createSecuence = async (data) => {
     const newSecuence = await Secuencias.create({
         timestr: data.timestr,
@@ -24,15 +29,15 @@ const getAllSecuences = async () => {
 
 const getCurrentSecuence = async () => {
     const currentDay = new Date()
-    const currentTime = currentDay.getHours() - 5 + ':' + currentDay.getMinutes()
+    const currentTime = digits(+currentDay.getHours() - 5) + ':' + digits(currentDay.getMinutes())
     const data = await Secuencias.findOne({
         where: {
             timestr: { [Op.eq]: currentTime }
         }
     })
 
-    return data ? data.steps : 0
-    // return currentTime
+    // return data ? data.steps : 0
+    return currentTime
 }
 
 const getSecuence1 = async () => {
