@@ -29,8 +29,8 @@ const getAllSecuences = async () => {
 
 const getCurrentSecuence = async () => {
     const currentDay = new Date()
-    const currentTime2 = digits(currentDay.getHours()) + ':' + digits(currentDay.getMinutes())
     const currentTime = currentDay.getHours() + ':' + currentDay.getMinutes()
+    const currentTime2 = digits(currentDay.getHours() - 5) + ':' + digits(currentDay.getMinutes())
     const data = await Secuencias.findOne({
         where: {
             timestr: { [Op.eq]: currentTime }
