@@ -29,7 +29,7 @@ const getAllSecuences = async () => {
 
 const getCurrentSecuence = async () => {
     const currentDay = new Date().toLocaleTimeString('en-US', { timeZone: 'America/Guayaquil' })
-    // const currentTime = currentDay.getHours() + ':' + currentDay.getMinutes()
+    const currentTime = currentDay.getHours() + ':' + currentDay.getMinutes()
     // const currentTime2 = digits(currentDay.getHours()) + ':' + digits(currentDay.getMinutes())
     const data = await Secuencias.findOne({
         // where: {
@@ -38,8 +38,7 @@ const getCurrentSecuence = async () => {
     })
 
     // return data ? data.steps : 0
-    // return { currentTime: currentTime, currentTime2: currentTime2 }
-    return { currentDay }
+    return { currentTime: currentTime }
 }
 
 const getSecuence1 = async () => {
