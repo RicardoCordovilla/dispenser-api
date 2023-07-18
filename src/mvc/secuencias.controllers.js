@@ -28,7 +28,7 @@ const getAllSecuences = async () => {
 }
 
 const getCurrentSecuence = async () => {
-    const currentDay = new Date().toLocaleTimeString('en-GB', { timeZone: 'US/Arizona' })
+    const currentDay = new Date().toLocaleTimeString('en-US', { timeZone: 'America/Denver' })
     // const currentTime = currentDay.getHours() + ':' + currentDay.getMinutes()
     // const currentTime2 = digits(currentDay.getHours()) + ':' + digits(currentDay.getMinutes())
     const data = await Secuencias.findOne({
