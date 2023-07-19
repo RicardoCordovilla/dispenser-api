@@ -8,6 +8,7 @@ router.post('/',
 )
 
 router.get('/', secuenciasServices.getAllSecuences)
+router.delete('/delete/:id', secuenciasServices.deleteSecuence)
 
 router.patch('/u/:step', secuenciasServices.updateSecuence1)
 

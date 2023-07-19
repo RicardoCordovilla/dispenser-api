@@ -23,6 +23,7 @@ const updateSecuence1 = async (steps) => {
 
 const getAllSecuences = async () => {
     const data = await Secuencias.findAll({
+        where: { id: { [Op.gt]: 1 } }
     })
     return data
 }
@@ -49,10 +50,19 @@ const getSecuence1 = async () => {
     return data.steps
 }
 
+const deleteSecuence = async (id) => {
+    const data = await Secuencias.destroy({
+        where: { id: id },
+        force: true
+    })
+    return data
+}
+
 module.exports = {
     createSecuence,
     updateSecuence1,
     getAllSecuences,
     getCurrentSecuence,
-    getSecuence1
+    getSecuence1,
+    deleteSecuence
 }

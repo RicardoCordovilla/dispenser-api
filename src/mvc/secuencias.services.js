@@ -56,10 +56,22 @@ const getSecuence1 = (req, res) => {
         })
 }
 
+
+const deleteSecuence = (req, res) => {
+    secuenciasControllers.deleteSecuence(req.params.id)
+        .then(data => {
+            res.status(200).json(data)
+        })
+        .catch((err) => {
+            res.status(404).json({ message: err.message })
+        })
+}
+
 module.exports = {
     createSecuence,
     updateSecuence1,
     getAllSecuences,
     getCurrentSecuence,
-    getSecuence1
+    getSecuence1,
+    deleteSecuence
 }
